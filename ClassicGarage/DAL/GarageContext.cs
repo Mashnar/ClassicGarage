@@ -9,6 +9,9 @@ namespace ClassicGarage.DAL
 {
     public class GarageContext:DbContext
     {
+        public GarageContext():base("name=ClassicGarage")
+        {
+        }
         public DbSet<CarModel> Car { get; set; }
         public DbSet<NoticeModel> Notice { get; set; }
         public DbSet<OwnerModel> Owner { get; set; }

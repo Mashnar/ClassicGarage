@@ -1,0 +1,99 @@
+﻿@model IEnumerable<ClassicGarage.Models.CarModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Notice.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Owner.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Series)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Buy_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sell_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Buy_Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sell_Cost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notice.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Owner.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Series)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Buy_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sell_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Buy_Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sell_Cost)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
