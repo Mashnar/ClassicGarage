@@ -12,7 +12,7 @@ namespace ClassicGarage.Models
         public string LastName { get; set; }
         public string Phone { get; set; }
         public string EMail { get; set; }
-        [System.ComponentModel.DataAnnotations.Required]
+      
         public virtual ICollection<CarModel> Cars { get; set; }
     }
 }
