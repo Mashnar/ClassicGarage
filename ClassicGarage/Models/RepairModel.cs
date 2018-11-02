@@ -1,22 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace ClassicGarage.Models
 {
+    [Table("Repair")]
     public class RepairModel
     {
 
         public int ID { get; set; }
-        public int CarID { get; set; }
+        
+        public int? CarID { get; set; }
         
         public string Name { get; set; }
         public string Description { get; set; }
         public int Cost { get; set; }
-        [Required]
+        
         public virtual CarModel Car { get; set; }
+        
         public virtual ICollection<PartsModel> Part { get; set; }
     }
 }

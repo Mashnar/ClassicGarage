@@ -17,7 +17,7 @@ namespace ClassicGarage.DAL
         public DbSet<OwnerModel> Owner { get; set; }
         public DbSet<PartsModel> Parts { get; set; }
         public DbSet<RepairModel> Repair { get; set; }
-        
+        /*
                 protected override void OnModelCreating(DbModelBuilder modelBuilder)
 
         {
@@ -25,7 +25,7 @@ namespace ClassicGarage.DAL
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
         }
+        */
     }
 }
-    }
-}
+    

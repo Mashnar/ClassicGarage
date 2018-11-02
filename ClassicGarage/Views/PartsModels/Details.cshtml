@@ -1,0 +1,66 @@
+﻿@model ClassicGarage.Models.PartsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PartsModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Repair.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Repair.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost_Buy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost_Buy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost_Sell)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost_Sell)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Buy_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buy_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sell_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sell_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
