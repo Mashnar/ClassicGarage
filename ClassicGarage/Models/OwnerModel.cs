@@ -11,8 +11,11 @@ namespace ClassicGarage.Models
     public class OwnerModel
     {
         public int ID { get; set; }
+        [DisplayName("Imię")]
         public string FirstName { get; set; }
+        [DisplayName("Nazwisko")]
         public string LastName { get; set; }
+        [DisplayName("Telefon")]
         public string Phone { get; set; }
         [DisplayName("Mail")]
         public string EMail { get; set; }

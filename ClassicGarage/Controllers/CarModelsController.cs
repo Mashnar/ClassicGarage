@@ -18,7 +18,7 @@ namespace ClassicGarage.Controllers
         // GET: CarModels
         public ActionResult Index()
         {
-            var car = db.Car.Include(c => c.Notice).Include(c => c.Owner);
+            var car = db.Car.Include(c => c.Owner);
             return View(car.ToList());
         }
 
@@ -40,14 +40,13 @@ namespace ClassicGarage.Controllers
         // GET: CarModels/Create
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.Notice, "ID", "ID");
             ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName");
             return View();
         }
 
         // POST: CarModels/Create
-        // Aby zapewnić ochronę przed atakami polegającymi na przesyłaniu dodatkowych danych, włącz określone właściwości, z którymi chcesz utworzyć powiązania.
-        // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Brand,Model,Year,VIN,Series,Photo,Buy_Date,Sell_Date,Buy_Cost,Sell_Cost,OwnerID")] CarModel carModel)
@@ -59,7 +58,6 @@ namespace ClassicGarage.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID = new SelectList(db.Notice, "ID", "ID", carModel.ID);
             ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
             return View(carModel);
         }
@@ -76,14 +74,13 @@ namespace ClassicGarage.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID = new SelectList(db.Notice, "ID", "ID", carModel.ID);
             ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
             return View(carModel);
         }
 
         // POST: CarModels/Edit/5
-        // Aby zapewnić ochronę przed atakami polegającymi na przesyłaniu dodatkowych danych, włącz określone właściwości, z którymi chcesz utworzyć powiązania.
-        // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Brand,Model,Year,VIN,Series,Photo,Buy_Date,Sell_Date,Buy_Cost,Sell_Cost,OwnerID")] CarModel carModel)
@@ -94,7 +91,6 @@ namespace ClassicGarage.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID = new SelectList(db.Notice, "ID", "ID", carModel.ID);
             ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
             return View(carModel);
         }

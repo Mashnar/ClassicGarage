@@ -173,7 +173,6 @@ F:\ClassicGarage\ClassicGarage\bin\pl\Microsoft.Owin.Security.MicrosoftAccount.r
 F:\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csprojResolveAssemblyReference.cache
 F:\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.dll
 F:\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.pdb
-C:\Users\Mashnar.DESKTOP-0NEU181\Desktop\c#\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csprojResolveAssemblyReference.cache
 C:\Users\Mashnar.DESKTOP-0NEU181\Desktop\c#\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.CoreCompileInputs.cache
 C:\Users\Mashnar.DESKTOP-0NEU181\Desktop\c#\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.dll
 C:\Users\Mashnar.DESKTOP-0NEU181\Desktop\c#\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.pdb
@@ -261,3 +260,5 @@ C:\Users\Mashnar.DESKTOP-0NEU181\Desktop\c#\ClassicGarage\ClassicGarage\bin\pl\M
 C:\Users\Mashnar.DESKTOP-0NEU181\Desktop\c#\ClassicGarage\ClassicGarage\bin\pl\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\Mashnar.DESKTOP-0NEU181\Desktop\c#\ClassicGarage\ClassicGarage\bin\pl\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Mashnar.DESKTOP-0NEU181\Desktop\c#\ClassicGarage\ClassicGarage\bin\pl\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\Mashnar.DESKTOP-0NEU181\Desktop\c#\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csprojAssemblyReference.cache
+C:\Users\Mashnar.DESKTOP-0NEU181\Desktop\c#\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.CopyComplete

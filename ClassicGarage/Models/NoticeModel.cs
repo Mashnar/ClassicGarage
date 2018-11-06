@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -11,12 +12,15 @@ namespace ClassicGarage.Models
     public class NoticeModel
     {
         [Key]
-        public int ID { get; set; }
         
-        public int? CarID { get; set; }
+        public int ID { get; set; }
+        [DisplayName("Auto")]
+        public int CarID { get; set; }
+        [DisplayName("Opis")]
         public string Description { get; set; }
+        [DisplayName("Czy aktywne")]
         public bool Active { get; set; }
-        [Required]
+        
         public virtual CarModel Car { get; set; }
 
         //cos tu nie gra XD

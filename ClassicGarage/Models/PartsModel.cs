@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -16,11 +17,15 @@ namespace ClassicGarage.Models
        // public int? CarID { get; set; }
        
         public int? RepairID { get; set; }
+        [DisplayName("Nazwa")]
         public string Name { get; set; }
-        
+        [DisplayName("Cena Zakupu")]
         public int Cost_Buy { get; set; }
+        [DisplayName("Cena sprzedazy")]
         public int? Cost_Sell { get; set; }
+        [DisplayName("Data Zakupu")]
         public DateTime Buy_Date { get; set; }
+        [DisplayName("Data sprzedaży")]
         public DateTime? Sell_Date { get; set; }
         
      //   public virtual CarModel Car { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,9 +15,11 @@ namespace ClassicGarage.Models
         public int ID { get; set; }
         
         public int? CarID { get; set; }
-        
+        [DisplayName("Nazwa")]
         public string Name { get; set; }
+        [DisplayName("Opis")]
         public string Description { get; set; }
+        [DisplayName("Cena")]
         public int Cost { get; set; }
         
         public virtual CarModel Car { get; set; }

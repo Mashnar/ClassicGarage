@@ -40,16 +40,16 @@ namespace ClassicGarage.Controllers
         // GET: NoticeModels/Create
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.Car, "ID", "Brand");
+            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand");
             return View();
         }
 
         // POST: NoticeModels/Create
-        // Aby zapewnić ochronę przed atakami polegającymi na przesyłaniu dodatkowych danych, włącz określone właściwości, z którymi chcesz utworzyć powiązania.
-        // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CarID,Active")] NoticeModel noticeModel)
+        public ActionResult Create([Bind(Include = "ID,CarID,Description,Active")] NoticeModel noticeModel)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace ClassicGarage.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID = new SelectList(db.Car, "ID", "Brand", noticeModel.ID);
+            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand", noticeModel.CarID);
             return View(noticeModel);
         }
 
@@ -74,16 +74,16 @@ namespace ClassicGarage.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID = new SelectList(db.Car, "ID", "Brand", noticeModel.ID);
+            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand", noticeModel.CarID);
             return View(noticeModel);
         }
 
         // POST: NoticeModels/Edit/5
-        // Aby zapewnić ochronę przed atakami polegającymi na przesyłaniu dodatkowych danych, włącz określone właściwości, z którymi chcesz utworzyć powiązania.
-        // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,CarID,Active")] NoticeModel noticeModel)
+        public ActionResult Edit([Bind(Include = "ID,CarID,Description,Active")] NoticeModel noticeModel)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace ClassicGarage.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID = new SelectList(db.Car, "ID", "Brand", noticeModel.ID);
+            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand", noticeModel.CarID);
             return View(noticeModel);
         }
 
