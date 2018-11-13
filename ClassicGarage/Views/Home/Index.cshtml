@@ -1,62 +1,70 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-   <h1>ClassicGarage</h1>
+    <h1>ClassicGarage</h1>
     <p class="lead">Aplikacja do zarządzania autami na zaliczenie ASP NET</p>
-    
+
 </div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Dodaj user </h2>
-        <p>
-            Dodaj użytkownika do bazy danych :)
-        </p>
-        <a class="btn btn-default" href='@Url.Action("Create", "OwnerModels")'>Click &raquo;</a>
-        <a class="btn btn-default" href='@Url.Action("Index", "OwnerModels")'>Spojrz istniejace &raquo;</a>
-
-    </div>
-    <div class="col-md-4">
-
-        <h2>Dodaj nowe auto </h2>
-        <p>
-            Dodaj auto do bazy (narazie tylko po wybraniu ID)
-        </p>
-
-        <a class="btn btn-default" href='@Url.Action("Create", "CarModels")'>Click &raquo;</a>
-        <a class="btn btn-default" href='@Url.Action("Index", "CarModels")'>Spojrz istniejace &raquo;</a>
-    </div>
-
-    <div class="col-md-4">
-
-        <h2>Dodaj nowe czesci  </h2>
-        <p>
-            części
-        </p>
-
-        <a class="btn btn-default" href='@Url.Action("Create", "PartsModels")'>Click &raquo;</a>
-        <a class="btn btn-default" href='@Url.Action("Index", "PartsModels")'>Spojrz istniejace &raquo;</a>
-    </div>
+@if (Request.IsAuthenticated)
+{
     <div class="row">
+
+
         <div class="col-md-4">
-            <h2>Dodaj nowe ogloszenie</h2>
+
+            <h2>Dodaj nowe auto </h2>
             <p>
-                Dodaj ogloszenie do bazy ale cos nie dziala dziwne (narazie tylko po wybraniu ID)
+                Dodaj auto
             </p>
 
-            <a class="btn btn-default" href='@Url.Action("Create", "NoticeModels")'>Click &raquo;</a>
-            <a class="btn btn-default" href='@Url.Action("Index", "NoticeModels")'>Spojrz istniejace &raquo;</a>
+            <a class="btn btn-default" href='@Url.Action("Create", "CarModels")'>Click &raquo;</a>
+            <a class="btn btn-default" href='@Url.Action("Index", "CarModels")'>Spojrz istniejace &raquo;</a>
         </div>
+
         <div class="col-md-4">
-            <h2>Dodaj nowe naprawe</h2>
+
+            <h2>Dodaj nowe czesci  </h2>
             <p>
-                Dodaje naprawe
+                części
             </p>
 
-            <a class="btn btn-default" href='@Url.Action("Create", "RepairModels")'>Click &raquo;</a>
-            <a class="btn btn-default" href='@Url.Action("Index", "RepairModels")'>Spojrz istniejace &raquo;</a>
+            <a class="btn btn-default" href='@Url.Action("Create", "PartsModels")'>Click &raquo;</a>
+            <a class="btn btn-default" href='@Url.Action("Index", "PartsModels")'>Spojrz istniejace &raquo;</a>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Dodaj nowe ogloszenie</h2>
+                <p>
+                    Dodaj ogloszenie do bazy ale cos nie dziala dziwne (narazie tylko po wybraniu ID)
+                </p>
+
+                <a class="btn btn-default" href='@Url.Action("Create", "NoticeModels")'>Click &raquo;</a>
+                <a class="btn btn-default" href='@Url.Action("Index", "NoticeModels")'>Spojrz istniejace &raquo;</a>
+            </div>
+            <div class="col-md-4">
+                <h2>Dodaj nowe naprawe</h2>
+                <p>
+                    Dodaje naprawe
+                </p>
+
+                <a class="btn btn-default" href='@Url.Action("Create", "RepairModels")'>Click &raquo;</a>
+                <a class="btn btn-default" href='@Url.Action("Index", "RepairModels")'>Spojrz istniejace &raquo;</a>
+            </div>
         </div>
         </div>
-</div>
+        }
+        else
+        {
+        <div class="row">
+
+
+            <div class="col-md-4">
+                nic ttuaj nie ma 
+            </div>
+        </div>
+
+        }
+    
