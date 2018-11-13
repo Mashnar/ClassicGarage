@@ -37,6 +37,7 @@ namespace ClassicGarage.Controllers
         }
 
         // GET: OwnerModels/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +48,7 @@ namespace ClassicGarage.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Phone,EMail")] OwnerModel ownerModel)
         {
             if (ModelState.IsValid)
