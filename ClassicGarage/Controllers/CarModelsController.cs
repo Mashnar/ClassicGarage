@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using ClassicGarage.DAL;
 using ClassicGarage.Models;
-using Microsoft.AspNet.Identity;
 
 namespace ClassicGarage.Controllers
 {
@@ -41,10 +40,7 @@ namespace ClassicGarage.Controllers
         // GET: CarModels/Create
         public ActionResult Create()
         {
-            // ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName");
-            //var Owner = db.Owner.Where(x => x.EMail == User.Identity.GetUserName()).ToList();
-           
-            
+            ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName");
             return View();
         }
 
