@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ClassicGarage.DAL;
 using ClassicGarage.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ClassicGarage.Controllers
 {
@@ -53,9 +54,12 @@ namespace ClassicGarage.Controllers
         {
             if (ModelState.IsValid)
             {
+                var e_mail = User.Identity.GetUserName();
+                var query = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.ID).FirstOrDefault();
+                Session["UserID"] = query;
                 db.Owner.Add(ownerModel);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return View("~/Views/Home/Index.cshtml");
             }
 
             return View(ownerModel);
