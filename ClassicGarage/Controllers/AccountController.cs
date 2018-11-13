@@ -9,12 +9,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ClassicGarage.Models;
+using ClassicGarage.DAL;
 
 namespace ClassicGarage.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private GarageContext db = new GarageContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -57,6 +59,7 @@ namespace ClassicGarage.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+           
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -79,7 +82,10 @@ namespace ClassicGarage.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+              
+                        return RedirectToLocal(returnUrl);
+                    
+                
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -89,6 +95,7 @@ namespace ClassicGarage.Controllers
                     ModelState.AddModelError("", "Nieprawidłowa próba logowania.");
                     return View(model);
             }
+          
         }
 
         //
@@ -163,7 +170,7 @@ namespace ClassicGarage.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Potwierdź konto", "Potwierdź konto, klikając <a href=\"" + callbackUrl + "\">tutaj</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Create", "OwnerModels");
                 }
                 AddErrors(result);
             }

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ClassicGarage.DAL;
 using ClassicGarage.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ClassicGarage.Controllers
 {
@@ -18,7 +19,7 @@ namespace ClassicGarage.Controllers
         // GET: OwnerModels
         public ActionResult Index()
         {
-            return View(db.Owner.ToList());
+            return View("~/Views/Home/Index.cshtml");
         }
 
         // GET: OwnerModels/Details/5
@@ -37,6 +38,7 @@ namespace ClassicGarage.Controllers
         }
 
         // GET: OwnerModels/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,12 +49,16 @@ namespace ClassicGarage.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Phone,EMail")] OwnerModel ownerModel)
         {
             if (ModelState.IsValid)
             {
                 db.Owner.Add(ownerModel);
                 db.SaveChanges();
+                var e_mail = User.Identity.GetUserName();
+                var UserID = db.Owner.Where(p => p.EMail == e_mail).Select(p => p.ID).FirstOrDefault();
+                Session["UserID"] = UserID;
                 return RedirectToAction("Index");
             }
 
