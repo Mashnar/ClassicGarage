@@ -59,7 +59,8 @@ namespace ClassicGarage.Controllers
                 Session["UserID"] = query;
                 db.Owner.Add(ownerModel);
                 db.SaveChanges();
-                return View("~/Views/Home/Index.cshtml");
+                var cars = db.Car.Where(s => s.OwnerID == query);
+                return View("~/Views/Home/Index.cshtml",cars.ToList());
             }
 
             return View(ownerModel);
