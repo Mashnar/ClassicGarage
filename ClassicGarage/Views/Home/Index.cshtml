@@ -1,24 +1,57 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@model IEnumerable<ClassicGarage.Models.CarModel>
+@using Microsoft.AspNet.Identity
+
 @{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ClassicGarage</h1>
-    <p class="lead">Aplikacja do zarządzania autami na zaliczenie ASP NET</p>
 
-</div>
 @if (Request.IsAuthenticated)
 {
+    <br />
+
+
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> @Html.DisplayNameFor(model => model.Photo)</th>
+                <th scope="col">  @Html.DisplayNameFor(model => model.Brand)</th>
+                <th scope="col">  @Html.DisplayNameFor(model => model.Model)</th>
+                <th scope="col">  @Html.DisplayNameFor(model => model.Year)</th>
+                <th scope="col">Szczegoly</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td class="thumbnail">
+                    <img src="@Url.Content("~/Content/Img/img.jpg")" alt="..." class="img-thumbnail">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+            </tr>
+                    }
+
+
+            </tbody>
+        </table>
+    //<img src="@Url.Content("~/Content/img/img.jpg")" alt="..." class="img-thumbnail">
+    <!--
     <div class="row">
 
-        <h1>ifjdsijfsidjfsi fsdfhnsdfhsidfjsiodfjsdifj
-        idjkdsiajdsiajdiajsdiasjdiasjdiasjdi
-        
-        
-        gdfgdfgdfgdfgdfgdfgdfg</h1>
+          <th class="thumbnail"><img src="@Url.Content("~/Content/Img/img.jpg")" alt="..." class="img-thumbnail"></th>
         <div class="col-md-4">
-            <h1>@Session["UserID"]</h1>
+
             <h2>Dodaj nowe auto </h2>
             <p>
                 Dodaj auto
@@ -59,16 +92,14 @@
             </div>
         </div>
         </div>
-        }
-        else
-        {
-        <div class="row">
+        -->
+}
+else
+{
+    <div class="jumbotron">
+        <h1>ClassicGarage</h1>
+        <p class="lead">Aplikacja do zarządzania autami na zaliczenie ASP NET</p>
 
+    </div>
 
-            <div class="col-md-4">
-                nic ttuaj nie ma 
-            </div>
-        </div>
-
-        }
-    
+}

@@ -16,7 +16,10 @@ namespace ClassicGarage.Controllers
             var e_mail = User.Identity.GetUserName();
             var query = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.ID).FirstOrDefault();
             Session["UserID"] = query;
-            return View();
+            var cars = db.Car.Where(s => s.OwnerID == query);
+            //Console.WriteLine(string.Join(", ", cars));
+
+            return View(cars.ToList());
         }
 
         public ActionResult About()
