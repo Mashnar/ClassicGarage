@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Parametry połączenia używane w pliku web.config przez aplikację w celu uzyskiwania dostępu do bazy danych." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ClassicGarage-20181023123802.mdf;Initial Catalog=aspnet-ClassicGarage-20181023123802;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Mashnar\.DESKTOP-0NEU181\\Desktop\\c\#\\ClassicGarage\\ClassicGarage\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Mashnar\\Desktop\\ClassicGarage\\ClassicGarage\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
   <parameter name="ClassicGarage-Web.config Connection String" description="ClassicGarage Parametry połączenia używane w pliku web.config przez aplikację w celu uzyskiwania dostępu do bazy danych." defaultValue="Server=tcp:classicgarage123.database.windows.net,1433;Initial Catalog=Garage2;Persist Security Info=False;User ID=mashnar;Password=Admin2137;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Mashnar\.DESKTOP-0NEU181\\Desktop\\c\#\\ClassicGarage\\ClassicGarage\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ClassicGarage']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Mashnar\\Desktop\\ClassicGarage\\ClassicGarage\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ClassicGarage']/@connectionString" />
   </parameter>
 </parameters>

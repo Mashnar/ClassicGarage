@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ClassicGarage.DAL;
 using ClassicGarage.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ClassicGarage.Controllers
 {
@@ -40,7 +42,7 @@ namespace ClassicGarage.Controllers
         // GET: CarModels/Create
         public ActionResult Create()
         {
-            ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName");
+            //ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName");
             return View();
         }
 
@@ -49,16 +51,21 @@ namespace ClassicGarage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public ActionResult Create([Bind(Include = "ID,Brand,Model,Year,VIN,Series,Photo,Buy_Date,Sell_Date,Buy_Cost,Sell_Cost,OwnerID")] CarModel carModel)
         {
+           
             if (ModelState.IsValid)
             {
+                var postedFile = Request.Files["Photo"];
+               
                 db.Car.Add(carModel);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(HomeController.Index), "Home");  
             }
+     
 
-            ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
+            //ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
             return View(carModel);
         }
 
@@ -74,7 +81,7 @@ namespace ClassicGarage.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
+            // ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
             return View(carModel);
         }
 
@@ -89,9 +96,9 @@ namespace ClassicGarage.Controllers
             {
                 db.Entry(carModel).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+               return RedirectToAction(nameof(HomeController.Index), "Home");
             }
-            ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
+            //ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
             return View(carModel);
         }
 
@@ -118,7 +125,7 @@ namespace ClassicGarage.Controllers
             CarModel carModel = db.Car.Find(id);
             db.Car.Remove(carModel);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         protected override void Dispose(bool disposing)
