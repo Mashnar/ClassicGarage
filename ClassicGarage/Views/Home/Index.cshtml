@@ -28,10 +28,11 @@
             {
                 <tr>
                     <td class="thumbnail">
-                        <img src="@Url.Content("~/Content/Img/img.jpg")" alt="..." class="img-thumbnail">
+                        <img src="@Url.Content("~/Content/Photo/"+item.Owner.FirstName+item.Owner.LastName+"/"+item.Photo)" alt="..." class="img-thumbnail">
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Brand)
+                        @Html.DisplayFor(modelItem => item.Owner.ID)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Model)

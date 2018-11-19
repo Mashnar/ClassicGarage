@@ -5,21 +5,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ClassicGarage.Models;
+using System.Data;
+using System.Data.Entity;
+using System.Net;
 
 namespace ClassicGarage.Controllers
 {
     public class HomeController : Controller
     {
         private GarageContext db = new GarageContext();
-        public ActionResult Index()
+        public ActionResult Index() 
         {
+            
             var e_mail = User.Identity.GetUserName();
             var query = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.ID).FirstOrDefault();
             Session["UserID"] = query;
-            var cars = db.Car.Where(s => s.OwnerID == query);
+            var car = db.Car.Include(p => p.Owner).Where(p=>p.OwnerID==query);
             //Console.WriteLine(string.Join(", ", cars));
 
-            return View(cars.ToList());
+            return View(car.ToList());
         }
 
         public ActionResult About()
