@@ -40,7 +40,7 @@ namespace ClassicGarage.Controllers
         // GET: CarModels/Create
         public ActionResult Create()
         {
-            ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName");
+            //ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName");
             return View();
         }
 
@@ -55,10 +55,10 @@ namespace ClassicGarage.Controllers
             {
                 db.Car.Add(carModel);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(HomeController.Index), "Home");  
             }
 
-            ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
+            //ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
             return View(carModel);
         }
 
@@ -74,7 +74,7 @@ namespace ClassicGarage.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
+            // ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
             return View(carModel);
         }
 
@@ -89,9 +89,9 @@ namespace ClassicGarage.Controllers
             {
                 db.Entry(carModel).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+               return RedirectToAction(nameof(HomeController.Index), "Home");
             }
-            ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
+            //ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
             return View(carModel);
         }
 
@@ -118,7 +118,7 @@ namespace ClassicGarage.Controllers
             CarModel carModel = db.Car.Find(id);
             db.Car.Remove(carModel);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         protected override void Dispose(bool disposing)
