@@ -54,15 +54,34 @@ namespace ClassicGarage.Controllers
         
         public ActionResult Create([Bind(Include = "ID,Brand,Model,Year,VIN,Series,Photo,Buy_Date,Sell_Date,Buy_Cost,Sell_Cost,OwnerID")] CarModel carModel)
         {
-           
+           string main = Server.MapPath("~/Content/Photo/");
+            var e_mail = User.Identity.GetUserName();
+            var firstname = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.FirstName).FirstOrDefault();
+            var lastname  = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.LastName).FirstOrDefault();
+
+            string source = firstname + lastname+"\\";
+
+            var TargetLocation = Path.Combine(main, source);
             if (ModelState.IsValid)
             {
-                var postedFile = Request.Files["Photo"];
+                HttpPostedFileBase postedFile = Request.Files["Photo"];
+
+              
+                    if (postedFile.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(postedFile.FileName);
+                        var path = Path.Combine(TargetLocation, fileName);
+                        postedFile.SaveAs(path);
+                    carModel.Photo = fileName;
+                    }
                
+               
+
                 db.Car.Add(carModel);
                 db.SaveChanges();
-                return RedirectToAction(nameof(HomeController.Index), "Home");  
+                return RedirectToAction(nameof(HomeController.Index), "Home");
             }
+        
      
 
             //ViewBag.OwnerID = new SelectList(db.Owner, "ID", "FirstName", carModel.OwnerID);
@@ -92,8 +111,27 @@ namespace ClassicGarage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Brand,Model,Year,VIN,Series,Photo,Buy_Date,Sell_Date,Buy_Cost,Sell_Cost,OwnerID")] CarModel carModel)
         {
+            string main = Server.MapPath("~/Content/Photo/");
+            var e_mail = User.Identity.GetUserName();
+            var firstname = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.FirstName).FirstOrDefault();
+            var lastname = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.LastName).FirstOrDefault();
+
+            string source = firstname + lastname + "\\";
+
+            var TargetLocation = Path.Combine(main, source);
             if (ModelState.IsValid)
             {
+                HttpPostedFileBase postedFile = Request.Files["Photo"];
+
+
+                if (postedFile.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(postedFile.FileName);
+                    var path = Path.Combine(TargetLocation, fileName);
+                    postedFile.SaveAs(path);
+                    carModel.Photo = fileName;
+                }
+
                 db.Entry(carModel).State = EntityState.Modified;
                 db.SaveChanges();
                return RedirectToAction(nameof(HomeController.Index), "Home");
