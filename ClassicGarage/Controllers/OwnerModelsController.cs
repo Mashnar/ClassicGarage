@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -54,6 +55,9 @@ namespace ClassicGarage.Controllers
         {
             if (ModelState.IsValid)
             {
+                string folder = Server.MapPath("~/Content/Photo/");
+                string folderName = Path.Combine(folder, ownerModel.FirstName+ownerModel.LastName);
+                Directory.CreateDirectory(folderName);
                 var e_mail = User.Identity.GetUserName();
                 var query = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.ID).FirstOrDefault();
                 Session["UserID"] = query;
