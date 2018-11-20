@@ -351,3 +351,6 @@ C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Release\ClassicGarage.c
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Release\ClassicGarage.csproj.CopyComplete
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Release\ClassicGarage.dll
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Release\ClassicGarage.pdb
+C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Release\ClassicGarage.Migrations.InitialCreate.resources
+C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Release\ClassicGarage.Migrations.First.resources
+C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Release\ClassicGarage.csproj.GenerateResource.cache

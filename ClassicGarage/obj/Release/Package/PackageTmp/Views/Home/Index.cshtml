@@ -28,10 +28,11 @@
             {
                 <tr>
                     <td class="thumbnail">
-                        <img src="@Url.Content("~/Content/Img/img.jpg")" alt="..." class="img-thumbnail">
+                        <img src="@Url.Content("~/Content/Photo/"+item.Owner.FirstName+item.Owner.LastName+"/"+item.Photo)" alt="..." class="img-thumbnail">
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Brand)
+                       
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Model)
@@ -48,6 +49,7 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <li>@Html.ActionLink("Szczegoly", "Details", "CarModels", new { id = item.ID }, null)</li>
                                 <li>@Html.ActionLink("Edytuj", "Edit", "CarModels", new { id = item.ID }, null)</li>
+                                <li>@Html.ActionLink("Naprawy", "Create", "RepairModels", new { id = item.ID }, null)</li>
                                 <li role="separator" class="divider"></li>
                                 <li>@Html.ActionLink("Usuń", "Delete", "CarModels", new { id = item.ID }, null)</li>
                             </ul>

@@ -49,7 +49,8 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <li>@Html.ActionLink("Szczegoly", "Details", "CarModels", new { id = item.ID }, null)</li>
                                 <li>@Html.ActionLink("Edytuj", "Edit", "CarModels", new { id = item.ID }, null)</li>
-                                <li>@Html.ActionLink("Naprawy", "Create", "RepairModels", new { id = item.ID }, null)</li>
+                                <li>@Html.ActionLink("Dodaj Nowa Naprawe", "Create", "RepairModels", new { id = item.ID }, null)</li>
+                                <li>@Html.ActionLink("Lista Napraw", "Details", "RepairModels",null, null)</li>
                                 <li role="separator" class="divider"></li>
                                 <li>@Html.ActionLink("Usuń", "Delete", "CarModels", new { id = item.ID }, null)</li>
                             </ul>
