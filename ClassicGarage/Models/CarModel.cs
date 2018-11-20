@@ -41,8 +41,9 @@ namespace ClassicGarage.Models
         public int? OwnerID { get; set; }
         
         public virtual OwnerModel Owner { get; set; }
+        public object Repair { get; internal set; }
 
         //public virtual ICollection<PartsModel> Part { get; set; }
-        
+
     }
 }

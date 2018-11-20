@@ -8,7 +8,7 @@
 <h2>Szczegóły</h2>
 <div class="container">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-4 col-sm-4">
             @Html.DisplayNameFor(model => model.Brand)
             <br />
             @Html.DisplayNameFor(model => model.Model)
@@ -28,7 +28,7 @@
             @Html.DisplayNameFor(model => model.Sell_Cost)
 
         </div>
-        <div class="col-sm-4">
+        <div class="col-4 col-sm-4">
             @Html.DisplayFor(model => model.Brand)
             <br />
             @Html.DisplayFor(model => model.Model)
@@ -49,12 +49,13 @@
 
 
         </div>
-        <div class="col-sm-4">
+        <div class="col-4 col-sm-4">
             <img src="@Url.Content("~/Content/Photo/"+Model.Owner.FirstName+Model.Owner.LastName+"/"+Model.Photo)" alt="..." class="img-responsive">
         </div>
     </div>
+
 </div>
 <p>
 
-    @Html.ActionLink("Wroc", "Index", "Home")
+    @Html.ActionLink("Wróć", "Index", "Home")
 </p>

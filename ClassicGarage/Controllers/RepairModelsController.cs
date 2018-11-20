@@ -36,6 +36,13 @@ namespace ClassicGarage.Controllers
             }
             return View(repairModel);
         }
+        // GET: RepairModels/Repairs/5
+        public ActionResult Repairs(int? id)
+        {
+            var Repair = db.Repair.Include(p => p.Car).Where(p => p.CarID == id);
+            ViewBag.CarID = id;
+            return View(Repair.ToList());
+        }
 
         // GET: RepairModels/Create
         public ActionResult Create(int? id)
@@ -55,10 +62,10 @@ namespace ClassicGarage.Controllers
             {
                 db.Repair.Add(repairModel);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Repairs",new { id = repairModel.CarID });
             }
 
-            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand", repairModel.CarID);
+            //ViewBag.CarID = new SelectList(db.Car, "ID", "Brand", repairModel.CarID);
             return View(repairModel);
         }
 

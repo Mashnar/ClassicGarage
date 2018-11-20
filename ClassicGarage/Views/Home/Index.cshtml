@@ -32,7 +32,7 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Brand)
-                       
+
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Model)
@@ -49,8 +49,8 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <li>@Html.ActionLink("Szczegoly", "Details", "CarModels", new { id = item.ID }, null)</li>
                                 <li>@Html.ActionLink("Edytuj", "Edit", "CarModels", new { id = item.ID }, null)</li>
-                                <li>@Html.ActionLink("Dodaj Nowa Naprawe", "Create", "RepairModels", new { id = item.ID }, null)</li>
-                                <li>@Html.ActionLink("Lista Napraw", "Details", "RepairModels",null, null)</li>
+                                <li>@Html.ActionLink("Naprawy", "Repairs", "RepairModels", new { id = item.ID }, null)</li>
+
                                 <li role="separator" class="divider"></li>
                                 <li>@Html.ActionLink("Usuń", "Delete", "CarModels", new { id = item.ID }, null)</li>
                             </ul>
@@ -65,64 +65,65 @@
     </table>
 
 
-        @Html.ActionLink("Dodaj nowe auto", "Create", "CarModels", null,new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("Dodaj nowe auto", "Create", "CarModels", null, new { @class = "btn btn-primary btn-lg" })
+   
 
 
-        //<img src="@Url.Content("~/Content/img/img.jpg")" alt="..." class="img-thumbnail">
-        <!--
-        <div class="row">
+    //<img src="@Url.Content("~/Content/img/img.jpg")" alt="..." class="img-thumbnail">
+    <!--
+    <div class="row">
 
-              <th class="thumbnail"><img src="@Url.Content("~/Content/Img/img.jpg")" alt="..." class="img-thumbnail"></th>
-            <div class="col-md-4">
+          <th class="thumbnail"><img src="@Url.Content("~/Content/Img/img.jpg")" alt="..." class="img-thumbnail"></th>
+        <div class="col-md-4">
 
-                <h2>Dodaj nowe auto </h2>
-                <p>
-                    Dodaj auto
-                </p>
+            <h2>Dodaj nowe auto </h2>
+            <p>
+                Dodaj auto
+            </p>
 
-                <a class="btn btn-default" href='@Url.Action("Create", "CarModels")'>Click &raquo;</a>
-                <a class="btn btn-default" href='@Url.Action("Index", "CarModels")'>Spojrz istniejace &raquo;</a>
-            </div>
-
-            <div class="col-md-4">
-
-                <h2>Dodaj nowe czesci  </h2>
-                <p>
-                    części
-                </p>
-
-                <a class="btn btn-default" href='@Url.Action("Create", "PartsModels")'>Click &raquo;</a>
-                <a class="btn btn-default" href='@Url.Action("Index", "PartsModels")'>Spojrz istniejace &raquo;</a>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Dodaj nowe ogloszenie</h2>
-                    <p>
-                        Dodaj ogloszenie do bazy ale cos nie dziala dziwne (narazie tylko po wybraniu ID)
-                    </p>
-
-                    <a class="btn btn-default" href='@Url.Action("Create", "NoticeModels")'>Click &raquo;</a>
-                    <a class="btn btn-default" href='@Url.Action("Index", "NoticeModels")'>Spojrz istniejace &raquo;</a>
-                </div>
-                <div class="col-md-4">
-                    <h2>Dodaj nowe naprawe</h2>
-                    <p>
-                        Dodaje naprawe
-                    </p>
-
-                    <a class="btn btn-default" href='@Url.Action("Create", "RepairModels")'>Click &raquo;</a>
-                    <a class="btn btn-default" href='@Url.Action("Index", "RepairModels")'>Spojrz istniejace &raquo;</a>
-                </div>
-            </div>
-            </div>
-            -->
-        }
-        else
-        {
-        <div class="jumbotron">
-            <h1>ClassicGarage</h1>
-            <p class="lead">Aplikacja do zarządzania autami na zaliczenie ASP NET</p>
-
+            <a class="btn btn-default" href='@Url.Action("Create", "CarModels")'>Click &raquo;</a>
+            <a class="btn btn-default" href='@Url.Action("Index", "CarModels")'>Spojrz istniejace &raquo;</a>
         </div>
 
-        }
+        <div class="col-md-4">
+
+            <h2>Dodaj nowe czesci  </h2>
+            <p>
+                części
+            </p>
+
+            <a class="btn btn-default" href='@Url.Action("Create", "PartsModels")'>Click &raquo;</a>
+            <a class="btn btn-default" href='@Url.Action("Index", "PartsModels")'>Spojrz istniejace &raquo;</a>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Dodaj nowe ogloszenie</h2>
+                <p>
+                    Dodaj ogloszenie do bazy ale cos nie dziala dziwne (narazie tylko po wybraniu ID)
+                </p>
+
+                <a class="btn btn-default" href='@Url.Action("Create", "NoticeModels")'>Click &raquo;</a>
+                <a class="btn btn-default" href='@Url.Action("Index", "NoticeModels")'>Spojrz istniejace &raquo;</a>
+            </div>
+            <div class="col-md-4">
+                <h2>Dodaj nowe naprawe</h2>
+                <p>
+                    Dodaje naprawe
+                </p>
+
+                <a class="btn btn-default" href='@Url.Action("Create", "RepairModels")'>Click &raquo;</a>
+                <a class="btn btn-default" href='@Url.Action("Index", "RepairModels")'>Spojrz istniejace &raquo;</a>
+            </div>
+        </div>
+        </div>
+        -->
+}
+else
+{
+    <div class="jumbotron">
+        <h1>ClassicGarage</h1>
+        <p class="lead">Aplikacja do zarządzania autami na zaliczenie ASP NET</p>
+
+    </div>
+
+}

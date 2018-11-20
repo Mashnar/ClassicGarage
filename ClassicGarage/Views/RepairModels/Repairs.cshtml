@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ClassicGarage.Models.RepairModel>
+@{
+    ViewBag.Title = "AllRepair";
+}
+
+<h2>Naprawy</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Name) </th>
+            <th scope="col"> Szczegoły</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                   
+                    @Html.DisplayFor(modelItem => item.Name)
+
+
+                </td>
+                <td> <a href="@Url.Action("Details", "RepairModels",new { id = item.ID })" class="btn btn-warning">
+    
+    <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+</a></td>
+
+
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+@ViewBag.CarID
+
+@Html.ActionLink("Dodaj naprawę", "Create", "RepairModels", new { id = ViewBag.CarID }, new { @class = "btn btn-primary btn-lg" })
+
+
+
+
+

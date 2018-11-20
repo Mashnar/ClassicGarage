@@ -304,6 +304,7 @@
     <Content Include="Views\NoticeModels\Details.cshtml" />
     <Content Include="Views\NoticeModels\Edit.cshtml" />
     <Content Include="Views\NoticeModels\Index.cshtml" />
+    <Content Include="Views\RepairModels\Repairs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
