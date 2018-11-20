@@ -1,106 +1,60 @@
 ﻿@model ClassicGarage.Models.CarModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Szczegóły";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>CarModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Owner.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Owner.FirstName)
-        </dd>
-
-        <dt>
+<h2>Szczegóły</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
             @Html.DisplayNameFor(model => model.Brand)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Brand)
-        </dd>
-
-        <dt>
+            <br />
             @Html.DisplayNameFor(model => model.Model)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-
-        <dt>
+            <br />
             @Html.DisplayNameFor(model => model.Year)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VIN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VIN)
-        </dd>
-
-        <dt>
+            <br />
             @Html.DisplayNameFor(model => model.Series)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Series)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>
-
-        <dt>
+            <br />
+            @Html.DisplayNameFor(model => model.VIN)
+            <br />
             @Html.DisplayNameFor(model => model.Buy_Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Buy_Date)
-        </dd>
-
-        <dt>
+            <br />
             @Html.DisplayNameFor(model => model.Sell_Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sell_Date)
-        </dd>
-
-        <dt>
+            <br />
             @Html.DisplayNameFor(model => model.Buy_Cost)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Buy_Cost)
-        </dd>
-
-        <dt>
+            <br />
             @Html.DisplayNameFor(model => model.Sell_Cost)
-        </dt>
 
-        <dd>
+        </div>
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.Brand)
+            <br />
+            @Html.DisplayFor(model => model.Model)
+            <br />
+            @Html.DisplayFor(model => model.Year)
+            <br />
+            @Html.DisplayFor(model => model.Series)
+            <br />
+            @Html.DisplayFor(model => model.VIN)
+            <br />
+            @Html.DisplayFor(model => model.Buy_Date)
+            <br />
+            @Html.DisplayFor(model => model.Sell_Date)
+            <br />
+            @Html.DisplayFor(model => model.Buy_Cost)
+            <br />
             @Html.DisplayFor(model => model.Sell_Cost)
-        </dd>
 
-    </dl>
+
+        </div>
+        <div class="col-sm-4">
+            <img src="@Url.Content("~/Content/Photo/"+Model.Owner.FirstName+Model.Owner.LastName+"/"+Model.Photo)" alt="..." class="img-responsive">
+        </div>
+    </div>
 </div>
 <p>
-    
-    @Html.ActionLink("Wroc", "Index","Home")
+
+    @Html.ActionLink("Wroc", "Index", "Home")
 </p>

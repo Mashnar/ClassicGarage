@@ -38,9 +38,9 @@ namespace ClassicGarage.Controllers
         }
 
         // GET: RepairModels/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand");
+            ViewBag.CarID = id;
             return View();
         }
 

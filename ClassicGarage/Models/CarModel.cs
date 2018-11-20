@@ -27,8 +27,10 @@ namespace ClassicGarage.Models
         [DisplayName("Obraz")]
         public string Photo { get; set; }
         [DisplayName("Data zakupu")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime Buy_Date { get; set; }
         [DisplayName("Data sprzedaży")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime? Sell_Date { get; set; }
         [DisplayName("Cena zakupu")]
         public int Buy_Cost { get; set; }

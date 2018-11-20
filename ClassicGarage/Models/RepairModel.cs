@@ -20,7 +20,7 @@ namespace ClassicGarage.Models
         [DisplayName("Opis")]
         public string Description { get; set; }
         [DisplayName("Cena")]
-        public int Cost { get; set; }
+        public int? Cost { get; set; }
         
         public virtual CarModel Car { get; set; }
         
