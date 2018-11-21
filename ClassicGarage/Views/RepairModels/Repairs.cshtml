@@ -4,11 +4,14 @@
 }
 
 <h2>Naprawy</h2>
+<h4>
+    @ViewBag.Car
+</h4>
 <table class="table table-bordered">
     <thead>
         <tr>
             <th scope="col">@Html.DisplayNameFor(model => model.Name) </th>
-            <th scope="col"> Szczegoły</th>
+            <th scope="col"> </th>
 
 
         </tr>
@@ -35,7 +38,7 @@
         }
     </tbody>
 </table>
-@ViewBag.CarID
+
 
 @Html.ActionLink("Dodaj naprawę", "Create", "RepairModels", new { id = ViewBag.CarID }, new { @class = "btn btn-primary btn-lg" })
 

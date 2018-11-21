@@ -29,18 +29,22 @@ namespace ClassicGarage.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RepairModel repairModel = db.Repair.Find(id);
-            if (repairModel == null)
+            var Repair = db.Parts.Include(p => p.Repair).Where(p => p.RepairID == id);
+            RepairModel nameRepair = db.Repair.Find(id);
+            ViewBag.nameRepair = nameRepair.Name;
+            if (Repair == null)
             {
                 return HttpNotFound();
             }
-            return View(repairModel);
+            return View(Repair.ToList());
         }
         // GET: RepairModels/Repairs/5
         public ActionResult Repairs(int? id)
         {
             var Repair = db.Repair.Include(p => p.Car).Where(p => p.CarID == id);
+            CarModel car = db.Car.Find(id);
             ViewBag.CarID = id;
+            ViewBag.Car = car.Brand+" "+car.Model;
             return View(Repair.ToList());
         }
 

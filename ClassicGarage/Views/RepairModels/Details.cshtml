@@ -1,50 +1,46 @@
-﻿@model ClassicGarage.Models.RepairModel
+﻿@model IEnumerable<ClassicGarage.Models.PartsModel>
 
 @{
+    /**/
+
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Szczegóły</h2>
 
 <div>
-    <h4>RepairModel</h4>
+
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Car.Brand)
-        </dt>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(Model=>Model.Repair.Name)</th>
+                <th scope="col">  Części</th>
+        
+            </tr>
+        </thead>
+        <tbody>
+           
+                <tr>
+                    <td>
+                       <b> @ViewBag.nameRepair</b>
+                    </td>
+                    <td>
+                        @foreach(var item_1 in Model)
+                        {
+                            @Html.DisplayFor(Model=>item_1.Name)
+                            <br />
+                        }
+                    </td>
+                </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Car.Brand)
-        </dd>
+            
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        </tbody>
+    </table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+    <p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cost)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cost)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        <a href='javascript:history.go(-1)'>Wróć</a>
+    </p>
