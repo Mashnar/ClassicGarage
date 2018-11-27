@@ -37,10 +37,10 @@ namespace ClassicGarage.Controllers
             return View(partsModel);
         }
 
-        // GET: PartsModels/Create
-        public ActionResult Create()
+        // GET: PartsModels/Create/5
+        public ActionResult Create(int? id)
         {
-            ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name");
+            ViewBag.num = id;
             return View();
         }
 
@@ -49,18 +49,27 @@ namespace ClassicGarage.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,RepairID,Name,Cost_Buy,Cost_Sell,Buy_Date,Sell_Date")] PartsModel partsModel)
+        public ActionResult Create([Bind(Include = "ID,RepairID,Name,Cost_Buy,Cost_Sell,Buy_Date,Sell_Date,RepairID")] PartsModel partsModel)
         {
             if (ModelState.IsValid)
             {
                 db.Parts.Add(partsModel);
+               
+
+                var result = db.Repair.SingleOrDefault(s => s.ID == partsModel.RepairID);
+                if(result != null)
+                {
+                    result.Cost = (int)partsModel.Cost_Buy;
+                       
+                }
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "RepairModels");
             }
 
-            ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
+           // ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
             return View(partsModel);
         }
+     
 
         // GET: PartsModels/Edit/5
         public ActionResult Edit(int? id)
@@ -94,6 +103,9 @@ namespace ClassicGarage.Controllers
             ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
             return View(partsModel);
         }
+
+
+       
 
         // GET: PartsModels/Delete/5
         public ActionResult Delete(int? id)
