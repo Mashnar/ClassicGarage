@@ -29,15 +29,20 @@
                 <td>
                     @foreach (var item_1 in Model)
                     {
-                        @Html.DisplayFor(Model => item_1.Name)
+                        <a href="@Url.Action("Details", "PartsModels",new { id = item_1.ID })" class="elements"><span>@Html.DisplayFor(Model => item_1.Name)</span></a>
+                    
+
+
                         <br />
                     }
                 </td>
                 <td>
-                   @ViewBag.PriceRepair
+                    @ViewBag.PriceRepair
                 </td>
             </tr>
-            
+
+          
+
 
 
 

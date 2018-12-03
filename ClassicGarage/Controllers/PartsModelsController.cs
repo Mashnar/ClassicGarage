@@ -57,13 +57,18 @@ namespace ClassicGarage.Controllers
                
 
                 var result = db.Repair.SingleOrDefault(s => s.ID == partsModel.RepairID);
+        
                 if(result != null)
                 {
-                    result.Cost = (int)partsModel.Cost_Buy;
+                  if(result.Cost == null)
+                    {
+                        result.Cost = 0;
+                    }
+                    result.Cost = partsModel.Cost_Buy+result.Cost;
                        
                 }
                 db.SaveChanges();
-                return RedirectToAction("Details", "RepairModels");
+                return RedirectToAction("Details", "RepairModels",new { id=partsModel.RepairID});
             }
 
            // ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
