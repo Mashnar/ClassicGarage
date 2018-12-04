@@ -88,7 +88,7 @@ namespace ClassicGarage.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
+           // ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
             return View(partsModel);
         }
 
@@ -102,10 +102,16 @@ namespace ClassicGarage.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(partsModel).State = EntityState.Modified;
+                if(partsModel.Cost_Sell != null)
+                {
+                    var result = db.Repair.Find(Session["RepairID"]);
+                    result.Cost = result.Cost - partsModel.Cost_Buy;
+
+                }
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "RepairModels", new { id = Session["RepairID"] });
             }
-            ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
+            //ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
             return View(partsModel);
         }
 

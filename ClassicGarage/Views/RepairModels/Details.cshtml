@@ -30,7 +30,7 @@
                     @foreach (var item_1 in Model)
                     {
                         <a href="@Url.Action("Details", "PartsModels",new { id = item_1.ID })" class="elements"><span>@Html.DisplayFor(Model => item_1.Name)</span></a>
-                    
+
 
 
                         <br />
@@ -41,16 +41,16 @@
                 </td>
             </tr>
 
-          
+
 
 
 
 
         </tbody>
     </table>
+
     @Html.ActionLink("Dodaj nową część", "Create", "PartsModels", new { id = ViewBag.Id }, new { @class = "btn btn-primary btn-lg" })
-
+    
     <p>
-
-        <a href='javascript:history.go(-1)'>Wróć</a>
+        
     </p>

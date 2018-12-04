@@ -30,10 +30,12 @@ namespace ClassicGarage.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var Repair = db.Parts.Include(p => p.Repair).Where(p => p.RepairID == id);
+            Session["RepairID"] = id;
             RepairModel nameRepair = db.Repair.Find(id);
             ViewBag.nameRepair = nameRepair.Name;
             ViewBag.Id = id;
             ViewBag.PriceRepair = nameRepair.Cost;
+            
             if (Repair == null)
             {
                 return HttpNotFound();
