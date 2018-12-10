@@ -21,15 +21,17 @@
         {
             <tr>
                 <td>
-                   
+
                     @Html.DisplayFor(modelItem => item.Name)
 
 
                 </td>
-                <td> <a href="@Url.Action("Details", "RepairModels",new { id = item.ID })" class="btn btn-warning">
-    
-    <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-</a></td>
+                <td>
+                    <a href="@Url.Action("Details", "RepairModels",new { id = item.ID })" class="btn btn-warning">
+
+                        <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+                    </a>
+                </td>
 
 
 
@@ -42,6 +44,7 @@
 
 @Html.ActionLink("Dodaj naprawę", "Create", "RepairModels", new { id = ViewBag.CarID }, new { @class = "btn btn-primary btn-lg" })
 
+@Html.ActionLink("Lista czesci", "Index", "PartsModels",null, new { @class = "btn btn-primary btn-lg" })
 
 
 

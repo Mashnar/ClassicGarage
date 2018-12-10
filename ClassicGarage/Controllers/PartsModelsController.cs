@@ -18,7 +18,7 @@ namespace ClassicGarage.Controllers
         // GET: PartsModels
         public ActionResult Index()
         {
-            var parts = db.Parts.Include(p => p.Repair);
+            var parts = db.Parts.Include(p => p.Repair).The;
             return View(parts.ToList());
         }
 

@@ -24,8 +24,10 @@ namespace ClassicGarage.Models
         [DisplayName("Cena sprzedazy")]
         public int? Cost_Sell { get; set; }
         [DisplayName("Data Zakupu")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime Buy_Date { get; set; }
         [DisplayName("Data sprzedaży")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime? Sell_Date { get; set; }
         
      //   public virtual CarModel Car { get; set; }
