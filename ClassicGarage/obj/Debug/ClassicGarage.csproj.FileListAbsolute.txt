@@ -351,9 +351,6 @@ C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csp
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.CopyComplete
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.dll
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.pdb
-C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.InitialCreate.resources
-C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.GenerateResource.cache
-C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.First.resources
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\bin\ApplicationInsights.config
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\bin\ClassicGarage.dll.config
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\bin\ClassicGarage.dll

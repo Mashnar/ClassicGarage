@@ -59,10 +59,10 @@ namespace ClassicGarage.Controllers
                 string folderName = Path.Combine(folder, ownerModel.FirstName+ownerModel.LastName);
                 Directory.CreateDirectory(folderName);
                 var e_mail = User.Identity.GetUserName();
-                var query = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.ID).FirstOrDefault();
-                Session["UserID"] = query;
                 db.Owner.Add(ownerModel);
                 db.SaveChanges();
+                var query = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.ID).FirstOrDefault();
+                Session["UserID"] = query;
                 var cars = db.Car.Where(s => s.OwnerID == query);
                 return View("~/Views/Home/Index.cshtml",cars.ToList());
             }

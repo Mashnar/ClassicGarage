@@ -9,8 +9,7 @@ namespace ClassicGarage.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "ClassicGarage.DAL.GarageContext";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(ClassicGarage.DAL.GarageContext context)
