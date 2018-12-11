@@ -16,10 +16,21 @@ namespace ClassicGarage.Controllers
         private GarageContext db = new GarageContext();
 
         // GET: PartsModels
-        public ActionResult Index()
+        public ActionResult Index(int ?id)
         {
-            var parts = db.Parts.Include(p => p.Repair).The;
-            return View(parts.ToList());
+            if(id== null)
+            {
+                var parts = db.Parts.Include(p => p.Repair);
+                return View(parts.ToList());
+            }
+            else
+            {
+                var parts = db.Parts.Include(p => p.Repair).Where(p => p.Repair.CarID == id);
+                return View(parts.ToList());
+            }
+            //includuje czdesci do napraw gdzie id auta w napraiwe to id 
+            
+           
         }
 
         // GET: PartsModels/Details/5

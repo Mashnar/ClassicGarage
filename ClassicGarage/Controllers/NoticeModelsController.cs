@@ -40,7 +40,8 @@ namespace ClassicGarage.Controllers
         // GET: NoticeModels/Create
         public ActionResult Create()
         {
-            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand");
+            var temp = (int)Session["UserID"];
+            ViewBag.CarID = new SelectList(db.Car.Where(p => p.OwnerID == (int)Session["UserID"]), "ID", "Brand");
             return View();
         }
 
