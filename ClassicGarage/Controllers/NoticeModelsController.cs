@@ -41,7 +41,7 @@ namespace ClassicGarage.Controllers
         public ActionResult Create()
         {
             var temp = (int)Session["UserID"];
-            ViewBag.CarID = new SelectList(db.Car.Where(p => p.OwnerID == (int)Session["UserID"]), "ID", "Brand");
+            ViewBag.CarID = new SelectList(db.Car.Where(p=>p.OwnerID==temp), "ID", "Brand");
             return View();
         }
 

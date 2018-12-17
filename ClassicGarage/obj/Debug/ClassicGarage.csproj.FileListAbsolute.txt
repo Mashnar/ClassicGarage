@@ -443,3 +443,5 @@ C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\Cla
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.CopyComplete
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.dll
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.pdb
+C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.Pierwsza.resources
+C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.GenerateResource.cache
