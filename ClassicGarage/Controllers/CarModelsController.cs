@@ -161,6 +161,22 @@ namespace ClassicGarage.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             CarModel carModel = db.Car.Find(id);
+            //biore wszystkie id 
+            var temp = db.Repair.Where(p => p.CarID == id);
+            foreach (var item in temp)
+            {
+                //bierzemy wszystkie czesci dla danej naprawy
+                var part = db.Parts.Where(x => x.RepairID == item.ID);
+                //ustawiamy na nulle wszystkie repair id
+                    foreach(var item_1 in part)
+                            {
+                                 item_1.RepairID = null;
+                            }
+             
+            }
+            //kasujemy naprawy
+                 db.Repair.RemoveRange(db.Repair.Where(x => x.CarID == id)).Select(p=>p.ID);
+            
             db.Car.Remove(carModel);
             db.SaveChanges();
             return RedirectToAction(nameof(HomeController.Index), "Home");

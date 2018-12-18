@@ -436,8 +436,6 @@ C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\bin\pl\Micros
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\bin\pl\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\bin\pl\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csprojAssemblyReference.cache
-C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.InitialCreate.resources
-C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.First.resources
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.GenerateResource.cache
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.CoreCompileInputs.cache
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.CopyComplete
@@ -445,3 +443,4 @@ C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\Cla
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.pdb
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.Pierwsza.resources
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.GenerateResource.cache
+C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.Pierwsza.resources

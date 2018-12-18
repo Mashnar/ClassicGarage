@@ -99,7 +99,7 @@ namespace ClassicGarage.Controllers
             {
                 return HttpNotFound();
             }
-           // ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
+            ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
             return View(partsModel);
         }
 
