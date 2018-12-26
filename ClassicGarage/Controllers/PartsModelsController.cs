@@ -99,7 +99,11 @@ namespace ClassicGarage.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
+            var temp = (int)Session["UserID"];
+            var RepairID = new SelectList(db.Repair.Where(p=>p.Car.OwnerID== temp), "ID", "Name", partsModel.RepairID).ToList();
+            RepairID.Insert(0, (new SelectListItem { Text = "Żadna", Value = "0" }));
+            ViewBag.RepairID = RepairID;
+
             return View(partsModel);
         }
 
@@ -110,18 +114,56 @@ namespace ClassicGarage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,RepairID,Name,Cost_Buy,Cost_Sell,Buy_Date,Sell_Date")] PartsModel partsModel)
         {
-            if (ModelState.IsValid)
+           
+            //db.Entry(partsModel).State = EntityState.Modified;
+            if (partsModel.RepairID == 0)//wiemy ze nie ma zadnej naprawy
             {
-                db.Entry(partsModel).State = EntityState.Modified;
-                if(partsModel.Cost_Sell != null)
-                {
-                    var result = db.Repair.Find(Session["RepairID"]);
-                    result.Cost = result.Cost - partsModel.Cost_Buy;
+                var RepairID = db.Parts.Find(partsModel.ID);
+                var temp = RepairID.RepairID;
+                var repair = db.Repair.Find(temp);
+                repair.Cost = repair.Cost - partsModel.Cost_Buy;
+                RepairID.RepairID = null;
+                RepairID.Sell_Date = partsModel.Sell_Date;
+                RepairID.Cost_Sell = partsModel.Cost_Sell;
+                
 
+
+
+                if (ModelState.IsValid)
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "PartsModels", null);
                 }
-                db.SaveChanges();
-                return RedirectToAction("Details", "RepairModels", new { id = Session["RepairID"] });
             }
+            else//wiemy ze zmieniamy na jakas naprawe takze przypisujemy 
+            {
+                var NewRepair = db.Repair.Find(partsModel.RepairID);//nowa naprawa
+                var RepairID = db.Parts.Find(partsModel.ID);
+                var temp = RepairID.RepairID;
+                var OldRepair = db.Repair.Find(temp);
+                if(OldRepair == null)
+                {
+                    NewRepair.Cost = NewRepair.Cost + partsModel.Cost_Buy;
+                }
+                else
+                {
+                    NewRepair.Cost = NewRepair.Cost + partsModel.Cost_Buy;
+                    OldRepair.Cost = OldRepair.Cost - partsModel.Cost_Buy;
+                }
+              
+          
+
+           
+                RepairID.RepairID = partsModel.RepairID;
+
+                if (ModelState.IsValid)
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "PartsModels", null);
+                }
+
+            }
+          
             //ViewBag.RepairID = new SelectList(db.Repair, "ID", "Name", partsModel.RepairID);
             return View(partsModel);
         }
@@ -137,10 +179,12 @@ namespace ClassicGarage.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             PartsModel partsModel = db.Parts.Find(id);
+
             if (partsModel == null)
             {
                 return HttpNotFound();
             }
+        
             return View(partsModel);
         }
 
@@ -150,6 +194,9 @@ namespace ClassicGarage.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             PartsModel partsModel = db.Parts.Find(id);
+      
+            var repair = db.Repair.Find(partsModel.RepairID);
+            repair.Cost = repair.Cost - partsModel.Cost_Buy;
             db.Parts.Remove(partsModel);
             db.SaveChanges();
             return RedirectToAction("Index");

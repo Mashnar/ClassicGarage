@@ -20,10 +20,12 @@ namespace ClassicGarage.Models
         public string Description { get; set; }
         [DisplayName("Czy aktywne")]
         public bool Active { get; set; }
-      //  [DisplayName("Telefon Kontaktowy")]
+        [DisplayName("Cena")]
+        public int Price { get; set; }
+        //  [DisplayName("Telefon Kontaktowy")]
         //public int tel_number { get; set; }
 
-        
+
         public virtual CarModel Car { get; set; }
 
         //cos tu nie gra XD
