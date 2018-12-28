@@ -445,3 +445,4 @@ C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Mig
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.GenerateResource.cache
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.Pierwsza.resources
 C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.Notice.resources
+C:\Users\Mashnar\Desktop\ClassicGarage\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.photo.resources

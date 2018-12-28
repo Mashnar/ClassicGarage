@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201812261356029_Notice.Designer.cs">
       <DependentUpon>201812261356029_Notice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812271130325_photo.cs" />
+    <Compile Include="Migrations\201812271130325_photo.Designer.cs">
+      <DependentUpon>201812271130325_photo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CarModel.cs" />
@@ -329,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812261356029_Notice.resx">
       <DependentUpon>201812261356029_Notice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812271130325_photo.resx">
+      <DependentUpon>201812271130325_photo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,42 +1,80 @@
-﻿@model ClassicGarage.Models.NoticeModel
+﻿@model IEnumerable<ClassicGarage.Models.NoticeModel>
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>NoticeModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
+
+<h2>Szczegóły</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-4 col-sm-4">
             @Html.DisplayNameFor(model => model.Car.Brand)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Car.Brand)
-        </dd>
-
-        <dt>
+            <br />
+            @Html.DisplayNameFor(model => model.Car.Model)
+            <br />
+            @Html.DisplayNameFor(model => model.Car.Year)
+            <br />
+            @Html.DisplayNameFor(model => model.Car.Series)
+            <br />
+            @Html.DisplayNameFor(model => model.Car.VIN)
+            <br />
+            @Html.DisplayNameFor(model => model.Car.Owner.FirstName)
+            <br />
+            @Html.DisplayNameFor(model => model.Car.Owner.LastName)
+            <br />
+            @Html.DisplayNameFor(model => model.Car.Owner.Phone)
+            <br />
+            @Html.DisplayNameFor(model => model.Car.Owner.EMail)
+            <br />
             @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            <br />
+            <b>
+                @Html.DisplayNameFor(model => model.Price)
+            </b>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Active)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Active)
-        </dd>
+        </div>
+        @foreach (var item in Model)
+        {
+        <div class="col-4 col-sm-4">
+            @Html.DisplayFor(modelItem => item.Car.Brand)
+            <br />
+            @Html.DisplayFor(modelItem => item.Car.Model)
+            <br />
+            @Html.DisplayFor(modelItem => item.Car.Year)
+            <br />
+            @Html.DisplayFor(modelItem => item.Car.Series)
+            <br />
+            @Html.DisplayFor(modelItem => item.Car.VIN)
+            <br />
+            @Html.DisplayFor(modelItem => item.Car.Owner.FirstName)
+            <br />
+            @Html.DisplayFor(modelItem => item.Car.Owner.LastName)
+            <br />
+            @Html.DisplayFor(modelItem => item.Car.Owner.Phone)
+            <br />
+            @Html.DisplayFor(modelItem => item.Car.Owner.EMail)
+            <br />
+            @Html.DisplayFor(modelItem => item.Description) 
+            <br />
+            <b>
+                @Html.DisplayFor(modelItem => item.Price)
 
-    </dl>
-</div>
+            </b>
+
+
+        </div>
+
+            <div class="col-4 col-sm-4">
+                <img src="@Url.Content("~/Content/Photo/"+Html.DisplayFor(modelItem => item.Car.Owner.FirstName)+Html.DisplayFor(modelItem => item.Car.Owner.LastName)+"/"+Html.DisplayFor(modelItem => item.Photo))" alt="..." class="img-responsive">
+            </div>
+        }
+    </div>
+    </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+
     @Html.ActionLink("Back to List", "Index")
 </p>

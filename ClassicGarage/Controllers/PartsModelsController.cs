@@ -143,6 +143,10 @@ namespace ClassicGarage.Controllers
                 var OldRepair = db.Repair.Find(temp);
                 if(OldRepair == null)
                 {
+                    if(NewRepair.Cost==null)
+                    {
+                        NewRepair.Cost = 0;
+                    }
                     NewRepair.Cost = NewRepair.Cost + partsModel.Cost_Buy;
                 }
                 else

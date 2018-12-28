@@ -22,6 +22,11 @@ namespace ClassicGarage.Controllers
             var query = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.ID).FirstOrDefault();
             Session["UserID"] = query;
             var car = db.Car.Include(p => p.Owner).Where(p=>p.OwnerID==query);
+            var notice_exist = db.Notice.Include(p => p.Active).Where(p => p.Car.OwnerID == query).Where(p=>p.Active==true).Count();
+            if(notice_exist>=1)
+            {
+                ViewBag.Notice = true;
+            }
             //Console.WriteLine(string.Join(", ", cars));
 
             return View(car.ToList());

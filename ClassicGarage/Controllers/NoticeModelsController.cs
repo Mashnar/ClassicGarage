@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ClassicGarage.DAL;
 using ClassicGarage.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ClassicGarage.Controllers
 {
@@ -15,10 +17,11 @@ namespace ClassicGarage.Controllers
     {
         private GarageContext db = new GarageContext();
 
-        // GET: NoticeModels
+        // GET: NoticeModels/5
         public ActionResult Index()
         {
-            var notice = db.Notice.Include(n => n.Car);
+            var temp =(int)Session["UserID"];
+            var notice = db.Notice.Include(n => n.Car).Include(n => n.Car.Owner).Where(n => n.Car.Owner.ID == temp);
             return View(notice.ToList());
         }
 
@@ -29,12 +32,13 @@ namespace ClassicGarage.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NoticeModel noticeModel = db.Notice.Find(id);
-            if (noticeModel == null)
+           //var temp = (int)Session["UserID"];
+            var notice = db.Notice.Include(n => n.Car).Include(n => n.Car.Owner).Where(n => n.ID == id);
+            if (notice == null)
             {
                 return HttpNotFound();
             }
-            return View(noticeModel);
+            return View(notice.ToList());
         }
 
         // GET: NoticeModels/Create
@@ -50,17 +54,32 @@ namespace ClassicGarage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CarID,Description,Active")] NoticeModel noticeModel)
+        public ActionResult Create([Bind(Include = "ID,CarID,Description,Active,Price,Photo")] NoticeModel noticeModel)
         {
+            string main = Server.MapPath("~/Content/Photo/");
+            var e_mail = User.Identity.GetUserName();
+            var firstname = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.FirstName).FirstOrDefault();
+            var lastname = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.LastName).FirstOrDefault();
+
+            string source = firstname + lastname + "\\";
+
+            var TargetLocation = Path.Combine(main, source);
             if (ModelState.IsValid)
             {
-                db.Notice.Add(noticeModel);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                HttpPostedFileBase postedFile = Request.Files["Photo"];
+                if (postedFile.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(postedFile.FileName);
+                    var path = Path.Combine(TargetLocation, fileName);
+                    postedFile.SaveAs(path);
+                    noticeModel.Photo = fileName;
+                }
+              
             }
 
-            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand", noticeModel.CarID);
-            return View(noticeModel);
+            db.Notice.Add(noticeModel);
+            db.SaveChanges();
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         // GET: NoticeModels/Edit/5
@@ -75,7 +94,8 @@ namespace ClassicGarage.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand", noticeModel.CarID);
+            var temp = (int)Session["UserID"];
+            ViewBag.CarID = new SelectList(db.Car.Where(p=>p.OwnerID==temp), "ID", "Brand", noticeModel.CarID);
             return View(noticeModel);
         }
 
@@ -84,10 +104,30 @@ namespace ClassicGarage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,CarID,Description,Active")] NoticeModel noticeModel)
+        public ActionResult Edit([Bind(Include = "ID,CarID,Description,Active,Price,Photo")] NoticeModel noticeModel)
         {
             if (ModelState.IsValid)
             {
+                string main = Server.MapPath("~/Content/Photo/");
+                var e_mail = User.Identity.GetUserName();
+                var firstname = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.FirstName).FirstOrDefault();
+                var lastname = db.Owner.Where(s => s.EMail == e_mail).Select(s => s.LastName).FirstOrDefault();
+
+                string source = firstname + lastname + "\\";
+
+                var TargetLocation = Path.Combine(main, source);
+                if (ModelState.IsValid)
+                {
+                    HttpPostedFileBase postedFile = Request.Files["Photo"];
+                    if (postedFile.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(postedFile.FileName);
+                        var path = Path.Combine(TargetLocation, fileName);
+                        postedFile.SaveAs(path);
+                        noticeModel.Photo = fileName;
+                    }
+
+                }
                 db.Entry(noticeModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
