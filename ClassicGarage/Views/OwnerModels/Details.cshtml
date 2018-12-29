@@ -1,13 +1,13 @@
 ﻿@model ClassicGarage.Models.OwnerModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Twoje Dane";
 }
 
-<h2>Details</h2>
+<h2>Twoje Dane</h2>
 
 <div>
-    <h4>OwnerModel</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -45,6 +45,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) 
 </p>

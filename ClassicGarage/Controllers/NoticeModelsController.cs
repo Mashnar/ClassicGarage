@@ -16,6 +16,12 @@ namespace ClassicGarage.Controllers
     public class NoticeModelsController : Controller
     {
         private GarageContext db = new GarageContext();
+        //GET : NoticeModels/AllNotice
+        public ActionResult AllNotice()
+        {
+            var notice = db.Notice.Include(n => n.Car).Include(n => n.Car.Owner).Where(n=>n.Active==true);
+            return View(notice.ToList());
+        }
 
         // GET: NoticeModels/5
         public ActionResult Index()
@@ -73,6 +79,10 @@ namespace ClassicGarage.Controllers
                     var path = Path.Combine(TargetLocation, fileName);
                     postedFile.SaveAs(path);
                     noticeModel.Photo = fileName;
+                }
+                else
+                {
+                    
                 }
               
             }

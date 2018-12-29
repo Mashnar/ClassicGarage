@@ -39,42 +39,46 @@
         </div>
         @foreach (var item in Model)
         {
-        <div class="col-4 col-sm-4">
-            @Html.DisplayFor(modelItem => item.Car.Brand)
-            <br />
-            @Html.DisplayFor(modelItem => item.Car.Model)
-            <br />
-            @Html.DisplayFor(modelItem => item.Car.Year)
-            <br />
-            @Html.DisplayFor(modelItem => item.Car.Series)
-            <br />
-            @Html.DisplayFor(modelItem => item.Car.VIN)
-            <br />
-            @Html.DisplayFor(modelItem => item.Car.Owner.FirstName)
-            <br />
-            @Html.DisplayFor(modelItem => item.Car.Owner.LastName)
-            <br />
-            @Html.DisplayFor(modelItem => item.Car.Owner.Phone)
-            <br />
-            @Html.DisplayFor(modelItem => item.Car.Owner.EMail)
-            <br />
-            @Html.DisplayFor(modelItem => item.Description) 
-            <br />
-            <b>
-                @Html.DisplayFor(modelItem => item.Price)
+            <div class="col-4 col-sm-4">
+                @Html.DisplayFor(modelItem => item.Car.Brand)
+                <br />
+                @Html.DisplayFor(modelItem => item.Car.Model)
+                <br />
+                @Html.DisplayFor(modelItem => item.Car.Year)
+                <br />
+                @Html.DisplayFor(modelItem => item.Car.Series)
+                <br />
+                @Html.DisplayFor(modelItem => item.Car.VIN)
+                <br />
+                @Html.DisplayFor(modelItem => item.Car.Owner.FirstName)
+                <br />
+                @Html.DisplayFor(modelItem => item.Car.Owner.LastName)
+                <br />
+                @Html.DisplayFor(modelItem => item.Car.Owner.Phone)
+                <br />
+                @Html.DisplayFor(modelItem => item.Car.Owner.EMail)
+                <br />
+                @Html.DisplayFor(modelItem => item.Description)
+                <br />
+                <b>
+                    @Html.DisplayFor(modelItem => item.Price)
 
-            </b>
+                </b>
 
 
-        </div>
+            </div>
 
             <div class="col-4 col-sm-4">
                 <img src="@Url.Content("~/Content/Photo/"+Html.DisplayFor(modelItem => item.Car.Owner.FirstName)+Html.DisplayFor(modelItem => item.Car.Owner.LastName)+"/"+Html.DisplayFor(modelItem => item.Photo))" alt="..." class="img-responsive">
+            </div>
+
+            <div class="col-4 col-sm-4">
+                <img src="@Url.Content("~/Content/Photo/"+Html.DisplayFor(modelItem => item.Car.Owner.FirstName)+Html.DisplayFor(modelItem => item.Car.Owner.LastName)+"/"+Html.DisplayFor(modelItem => item.Car.Photo))" alt="..." class="img-responsive">
             </div>
         }
     </div>
     </div>
 <p>
 
-    @Html.ActionLink("Back to List", "Index")
+   
 </p>

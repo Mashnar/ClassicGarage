@@ -69,7 +69,7 @@
     @Html.ActionLink("Dodaj Ogłoszenie", "Create", "NoticeModels", null, new { @class = "btn btn-primary btn-lg" })
     @Html.ActionLink("Lista części", "Index", "PartsModels", null, new { @class = "btn btn-primary btn-lg" })
     <br />
-    if(ViewBag.Notice != null)
+    if (ViewBag.Notice != null)
     {
         @Html.ActionLink("Ogłoszenia", "Index", "NoticeModels", null, new { @class = "btn btn-primary btn-lg" })
     }
@@ -133,5 +133,9 @@ else
         <p class="lead">Aplikacja do zarządzania autami na zaliczenie ASP NET</p>
 
     </div>
+
+
+
+    @Html.ActionLink("Zobacz Ogłoszenia", "AllNotice", "NoticeModels", null, new { @class = "btn btn-primary btn-lg" })
 
 }

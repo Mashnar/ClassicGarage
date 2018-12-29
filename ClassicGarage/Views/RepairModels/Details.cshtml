@@ -16,6 +16,7 @@
             <tr>
                 <th scope="col">@Html.DisplayNameFor(Model => Model.Repair.Name)</th>
                 <th scope="col">  Części</th>
+                <th scope="col">  Opis</th>
                 <th scope="col">Kwota całej naprawy</th>
 
             </tr>
@@ -35,6 +36,10 @@
 
                         <br />
                     }
+                </td>
+                <td>
+                  @ViewBag.Description
+
                 </td>
                 <td>
                     @ViewBag.PriceRepair

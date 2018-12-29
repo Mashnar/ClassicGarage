@@ -1,10 +1,10 @@
 ﻿@model ClassicGarage.Models.NoticeModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Stworz ogloszenie";
 }
 
-<h2>Create</h2>
+<h2>Stworz ogloszenie</h2>
 
 
 @using (Html.BeginForm("Create", "NoticeModels", FormMethod.Post, new
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>NoticeModel</h4>
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

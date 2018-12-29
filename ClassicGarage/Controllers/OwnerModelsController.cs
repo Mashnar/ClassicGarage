@@ -96,7 +96,7 @@ namespace ClassicGarage.Controllers
             {
                 db.Entry(ownerModel).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             return View(ownerModel);
         }

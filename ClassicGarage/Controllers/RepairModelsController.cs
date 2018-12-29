@@ -32,6 +32,7 @@ namespace ClassicGarage.Controllers
             var Repair = db.Parts.Include(p => p.Repair).Where(p => p.RepairID == id);
             Session["RepairID"] = id;
             RepairModel nameRepair = db.Repair.Find(id);
+            ViewBag.Description = nameRepair.Description;
             ViewBag.nameRepair = nameRepair.Name;
             ViewBag.Id = id;
             ViewBag.PriceRepair = nameRepair.Cost;
