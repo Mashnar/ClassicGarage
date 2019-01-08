@@ -69,10 +69,9 @@
     @Html.ActionLink("Dodaj Ogłoszenie", "Create", "NoticeModels", null, new { @class = "btn btn-primary btn-lg" })
     @Html.ActionLink("Lista części", "Index", "PartsModels", null, new { @class = "btn btn-primary btn-lg" })
     <br />
-    if (ViewBag.Notice != null)
-    {
+   
         @Html.ActionLink("Ogłoszenia", "Index", "NoticeModels", null, new { @class = "btn btn-primary btn-lg" })
-    }
+  
 
 
 

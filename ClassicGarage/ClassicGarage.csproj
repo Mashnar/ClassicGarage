@@ -213,6 +213,14 @@
     <Compile Include="Migrations\201812271130325_photo.Designer.cs">
       <DependentUpon>201812271130325_photo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901080957126_PartsID.cs" />
+    <Compile Include="Migrations\201901080957126_PartsID.Designer.cs">
+      <DependentUpon>201901080957126_PartsID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081008509_base.cs" />
+    <Compile Include="Migrations\201901081008509_base.Designer.cs">
+      <DependentUpon>201901081008509_base.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CarModel.cs" />
@@ -337,6 +345,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812271130325_photo.resx">
       <DependentUpon>201812271130325_photo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901080957126_PartsID.resx">
+      <DependentUpon>201901080957126_PartsID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081008509_base.resx">
+      <DependentUpon>201901081008509_base.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

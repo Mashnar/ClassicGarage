@@ -20,7 +20,8 @@ namespace ClassicGarage.Controllers
         {
             if(id== null)
             {
-                var parts = db.Parts.Include(p => p.Repair);
+                int id_user = (int)Session["UserID"];
+                var parts = db.Parts.Where(p => p.OwnerID == id_user);
                 return View(parts.ToList());
             }
             else
@@ -60,7 +61,7 @@ namespace ClassicGarage.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,RepairID,Name,Cost_Buy,Cost_Sell,Buy_Date,Sell_Date,RepairID")] PartsModel partsModel)
+        public ActionResult Create([Bind(Include = "ID,RepairID,Name,Cost_Buy,Cost_Sell,Buy_Date,Sell_Date,RepairID,OwnerID")] PartsModel partsModel)
         {
             if (ModelState.IsValid)
             {
@@ -200,7 +201,15 @@ namespace ClassicGarage.Controllers
             PartsModel partsModel = db.Parts.Find(id);
       
             var repair = db.Repair.Find(partsModel.RepairID);
-            repair.Cost = repair.Cost - partsModel.Cost_Buy;
+            if(repair==null)
+            {
+
+            }
+            else
+            {
+                repair.Cost = repair.Cost - partsModel.Cost_Buy;
+            }
+            
             db.Parts.Remove(partsModel);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -1,10 +1,10 @@
 ﻿@model ClassicGarage.Models.NoticeModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edycja ogłoszenia";
 }
 
-<h2>Edit</h2>
+<h2>Edytuj ogłoszenie</h2>
 
 
 @using (Html.BeginForm("Edit", "NoticeModels", FormMethod.Post, new
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>NoticeModel</h4>
+  
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ID)
@@ -60,15 +60,12 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Zapisz" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

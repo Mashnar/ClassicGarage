@@ -21,5 +21,6 @@ namespace ClassicGarage.Models
         public string EMail { get; set; }
       
         public virtual ICollection<CarModel> Cars { get; set; }
+        public virtual ICollection<PartsModel> Parts { get; set; }
     }
 }

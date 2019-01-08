@@ -13,7 +13,7 @@ namespace ClassicGarage.Models
     {
      
         public int ID { get; set; }
-       
+       public int? OwnerID { get; set; }
        // public int? CarID { get; set; }
        
         public int? RepairID { get; set; }
@@ -32,6 +32,6 @@ namespace ClassicGarage.Models
         
      //   public virtual CarModel Car { get; set; }
         public virtual RepairModel Repair { get;set; }
-
+        public virtual OwnerModel Owner { get; set; }
     }
 }

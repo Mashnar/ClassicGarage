@@ -1,10 +1,10 @@
 ﻿@model ClassicGarage.Models.CarModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edycja auta";
 }
 
-<h2>Edit</h2>
+<h2>Edytuj auto</h2>
 
 
 @using (Html.BeginForm("Edit", "CarModels", FormMethod.Post, new
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>CarModel</h4>
+
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ID)
@@ -103,7 +103,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Zapisz" class="btn btn-default" />
         </div>
     </div>
 </div>
